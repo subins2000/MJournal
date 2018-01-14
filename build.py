@@ -42,9 +42,9 @@ if __name__ == '__main__':
 
     cmd = args[0]
 
-    if 1 in args:
+    try:
         mode = args[1]
-    else:
+    except:
         mode = None
 
     if cmd == 'build':
