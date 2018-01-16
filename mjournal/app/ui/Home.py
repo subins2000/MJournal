@@ -31,6 +31,7 @@ class Ui_Home(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralWidget)
         self.verticalLayout.setObjectName("verticalLayout")
         self.noWebEngineInfo = QtWidgets.QTextBrowser(self.centralWidget)
+        self.noWebEngineInfo.setOpenExternalLinks(True)
         self.noWebEngineInfo.setObjectName("noWebEngineInfo")
         self.verticalLayout.addWidget(self.noWebEngineInfo)
         Home.setCentralWidget(self.centralWidget)
