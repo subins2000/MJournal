@@ -30,10 +30,9 @@ class Ui_Home(object):
         self.centralWidget.setObjectName("centralWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralWidget)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.webView = QtWebKitWidgets.QWebView(self.centralWidget)
-        self.webView.setUrl(QtCore.QUrl("about:blank"))
-        self.webView.setObjectName("webView")
-        self.verticalLayout.addWidget(self.webView)
+        self.noWebEngineInfo = QtWidgets.QTextBrowser(self.centralWidget)
+        self.noWebEngineInfo.setObjectName("noWebEngineInfo")
+        self.verticalLayout.addWidget(self.noWebEngineInfo)
         Home.setCentralWidget(self.centralWidget)
         self.menubar = QtWidgets.QMenuBar(Home)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 537, 20))
@@ -64,10 +63,16 @@ class Ui_Home(object):
     def retranslateUi(self, Home):
         _translate = QtCore.QCoreApplication.translate
         Home.setWindowTitle(_translate("Home", "MJournal"))
+        self.noWebEngineInfo.setHtml(_translate("Home", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Sans Serif\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">MJournal</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Your system doesn\'t have PyQt5.QtWebEngineWidgets.</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"http://127.0.0.1:8786\"><span style=\" text-decoration: underline; color:#0000ff;\">Open MJournal In Browser</span></a></p></body></html>"))
         self.menuFile.setTitle(_translate("Home", "File"))
         self.menuEdit.setTitle(_translate("Home", "Edit"))
         self.settingsAction.setText(_translate("Home", "Settings"))
         self.quitAction.setText(_translate("Home", "Quit"))
         self.quitAction.setShortcut(_translate("Home", "Ctrl+Q"))
 
-from PyQt5 import QtWebKitWidgets
