@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask
-from flask import render_template
+from flask import render_template, send_from_directory
 
 
 server_loc = os.path.dirname(os.path.abspath(__file__))
