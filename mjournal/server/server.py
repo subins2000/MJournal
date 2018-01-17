@@ -32,4 +32,9 @@ def send_css(path):
 def run_server():
     global server
 
+    '''
+    UPDATE templates on change
+    '''
+    server.config['TEMPLATES_AUTO_RELOAD'] = 'true'
+
     server.run(port=8786)
