@@ -18,7 +18,21 @@
                     </ul>
                 </div>
             </nav>
+            <div id="content">
+                <router-view></router-view>
+            </div>
         </div>
+        <script>
+            const Home = {
+                template: '{{ home_template }}'
+            }
+            const Write = {
+                template: '{{ write_template }}'
+            }
+            const Settings = {
+                template: '{{ settings_template }}'
+            }
+        </script>
         <script type="text/javascript" src="js/app.js" async="async"></script>
     </body>
 </html>
