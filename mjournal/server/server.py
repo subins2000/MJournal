@@ -19,8 +19,10 @@ def get_template_content(filename):
 
     return data
 
-@server.route("/")
-def index():
+@server.route('/')
+@server.route('/write')
+@server.route('/settings')
+def index(path = None):
     return render_template('index.html',
         home_template=get_template_content('home.html'),
         write_template=get_template_content('write.html'),
