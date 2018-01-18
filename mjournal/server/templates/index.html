@@ -24,13 +24,13 @@
         </div>
         <script>
             const Home = {
-                template: '{{ home_template }}'
+                template: '{{ home_template|safe }}'
             }
             const Write = {
-                template: '{{ write_template }}'
+                template: '{{ write_template|safe }}'
             }
             const Settings = {
-                template: '{{ settings_template }}'
+                template: '{{ settings_template|safe }}'
             }
         </script>
         <script type="text/javascript" src="js/app.js" async="async"></script>
