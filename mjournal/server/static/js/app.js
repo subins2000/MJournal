@@ -10,8 +10,11 @@ const router = new VueRouter({
     }, {
         path: '/settings',
         component: Settings
-    }]
-})
+    }],
+    ready: function(from) {
+        console.log(from);
+    }
+});
 
 var app = new Vue({
     delimiters: ['[[', ']]'],
@@ -23,6 +26,27 @@ var app = new Vue({
     },
 
     methods: {
+        initWritePage: function() {
+            console.log(document.getElementById('write-area'));
+            var simplemde = new SimpleMDE({
+                element: document.getElementById('write-area')
+            });
+        },
 
+        onPageLoad: function(path) {
+            if (path === '/write') {
+                this.initWritePage();
+            }
+        }
+    },
+
+    watch: {
+        '$route': function(to) {
+            this.onPageLoad(to.path);
+        }
+    },
+
+    ready: function() {
+        this.onPageLoad(this.$route.path);
     }
-})
+});
