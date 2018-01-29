@@ -27,7 +27,6 @@ var app = new Vue({
 
     methods: {
         initWritePage: function() {
-            console.log(document.getElementById('write-area'));
             var simplemde = new SimpleMDE({
                 element: document.getElementById('write-area')
             });
@@ -46,7 +45,11 @@ var app = new Vue({
         }
     },
 
-    ready: function() {
+    mounted: function() {
+        this.onPageLoad(this.$route.path);
+    },
+
+    updated: function() {
         this.onPageLoad(this.$route.path);
     }
 });
