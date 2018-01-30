@@ -1,3 +1,8 @@
+var strings = {
+    name: 'MJournal',
+    date: ''
+};
+
 const router = new VueRouter({
     mode: 'history',
     base: '/',
@@ -21,9 +26,7 @@ var app = new Vue({
     el: '#app',
     router: router,
 
-    data: {
-        name: 'MJournal'
-    },
+    data: strings,
 
     methods: {
         initWritePage: function() {

@@ -28,7 +28,10 @@
                 template: '{{ home_template|safe }}'
             }
             const Write = {
-                template: '{{ write_template|safe }}'
+                template: '{{ write_template|safe }}',
+                data: function() {
+                    return strings;
+                }
             }
             const Settings = {
                 template: '{{ settings_template|safe }}'
