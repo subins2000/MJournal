@@ -4,3 +4,10 @@
 #content {
     padding-top: 20px;
 }
+
+/**
+ * Write
+ */
+#entry-title {
+    margin-top: 0;
+}

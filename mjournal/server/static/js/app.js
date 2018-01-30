@@ -1,6 +1,6 @@
 var strings = {
     name: 'MJournal',
-    date: ''
+    entry_title: ''
 };
 
 const router = new VueRouter({
@@ -33,6 +33,8 @@ var app = new Vue({
             var simplemde = new SimpleMDE({
                 element: document.getElementById('write-area')
             });
+
+            strings.entry_title = new Date().toDateString();
         },
 
         onPageLoad: function(path) {
