@@ -28,10 +28,21 @@ var app = new Vue({
 
     data: strings,
 
+    simplemde: null,
+    entryID: null,
+
     methods: {
         initWritePage: function() {
-            var simplemde = new SimpleMDE({
-                element: document.getElementById('write-area')
+            d = new Date();
+            this.entryID = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+
+            this.simplemde = new SimpleMDE({
+                element: document.getElementById('write-area'),
+
+                autosave: {
+                    enabled: true,
+                    uniqueId: this.entryID
+                }
             });
 
             strings.entry_title = new Date().toDateString();
