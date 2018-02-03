@@ -42,7 +42,18 @@ var app = new Vue({
                 autosave: {
                     enabled: true,
                     uniqueId: this.entryID
-                }
+                },
+
+                toolbar: [
+                    "bold", "italic", "strikethrough", "heading", "|", "quote", "unordered-list", "ordered-list", "|", "undo", "redo",
+                    {
+                    name: 'save',
+                    action: function() {
+
+                    },
+                    className: 'fa fa-save',
+                    title: 'Save'
+                }]
             });
 
             strings.entry_title = new Date().toDateString();
