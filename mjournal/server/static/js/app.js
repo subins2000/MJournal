@@ -45,7 +45,7 @@ var app = new Vue({
                 },
 
                 toolbar: [
-                    "bold", "italic", "strikethrough", "heading", "|", "quote", "unordered-list", "ordered-list", "|", "undo", "redo",
+                    'bold', 'italic', 'strikethrough', 'heading', '|', 'image', 'quote', 'unordered-list', 'ordered-list', '|', 'undo', 'redo',
                     {
                     name: 'save',
                     action: function() {
