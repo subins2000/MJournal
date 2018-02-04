@@ -21,7 +21,7 @@ const router = new VueRouter({
     }
 });
 
-var app = new Vue({
+app = new Vue({
     delimiters: ['[[', ']]'],
     el: '#app',
     router: router,
@@ -48,9 +48,7 @@ var app = new Vue({
                     'bold', 'italic', 'strikethrough', 'heading', '|', 'image', 'quote', 'unordered-list', 'ordered-list', '|', 'undo', 'redo',
                     {
                     name: 'save',
-                    action: function() {
-
-                    },
+                    action: app.save,
                     className: 'fa fa-save',
                     title: 'Save'
                 }]
@@ -63,6 +61,15 @@ var app = new Vue({
             if (path === '/write') {
                 this.initWritePage();
             }
+        },
+
+        save: function() {
+            $.post('ajax/save', {
+                id: app.entryID,
+                body: app.simplemde.value()
+            }, function() {
+
+            });
         }
     },
 
