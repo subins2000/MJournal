@@ -1,7 +1,6 @@
 import os
 
-from flask import Flask
-from flask import render_template, send_from_directory
+from flask import Flask, request, render_template, send_from_directory
 
 
 server_loc = os.path.dirname(os.path.abspath(__file__))
@@ -44,6 +43,17 @@ def send_css(path):
     css_loc = os.path.join(server_loc, 'static', 'css')
 
     return send_from_directory(css_loc, path)
+
+'''
+AJAX Routes
+'''
+
+@server.route('/ajax/save', methods=['POST'])
+def ajax_save():
+    entry_id = request.form['id']
+    entry_body = request.form['body']
+
+    return 'a'
 
 def run_server():
     global server
