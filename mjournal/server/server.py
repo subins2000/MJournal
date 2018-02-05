@@ -1,8 +1,10 @@
 import os
 
 from flask import Flask, request, render_template, send_from_directory
+from mjournal import Entries
 
 
+root_loc = None
 server_loc = os.path.dirname(os.path.abspath(__file__))
 
 template_loc = os.path.join(server_loc, 'templates')
@@ -55,8 +57,10 @@ def ajax_save():
 
     return 'a'
 
-def run_server():
-    global server
+def run_server(root_loc_passed):
+    global server, root_loc
+
+    root_loc = root_loc_passed
 
     '''
     UPDATE templates on change
