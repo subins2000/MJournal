@@ -15,4 +15,9 @@ class Settings:
         if save_loc:
             return save_loc
         else:
+            data_path = os.path.join(root_loc, 'data')
+
+            if not os.path.exists(data_path):
+                os.makedirs(data_path)
+
             return os.path.join(root_loc, 'data', 'entries')
