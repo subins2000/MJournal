@@ -1,10 +1,18 @@
+from datetime import datetime
+
+import os
+
 import mjournal.Settings
 
 
 class Entries:
 
-    def __init__(self):
-        self.save_loc = Settings.get_save_loc()
+    def split_id_to_date(entry_id):
+        dt = datetime.strptime(entry_id, '%Y-%m-%d')
 
-    def save_entry(self, id, content):
-        self.save_loc()
+        return (dt.year, dt.month, dt.day)
+
+    def save_entry(self, entry_id, content):
+        year, month, day = self.split_id_to_date(entry_id)
+
+        save_loc = Settings.get_save_loc()
