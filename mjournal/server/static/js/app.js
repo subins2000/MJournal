@@ -51,7 +51,9 @@ app = new Vue({
                     action: app.save,
                     className: 'fa fa-save',
                     title: 'Save'
-                }]
+                }],
+
+                autoDownloadFontAwesome: false
             });
 
             strings.entry_title = new Date().toDateString();
@@ -66,9 +68,9 @@ app = new Vue({
         save: function() {
             $.post('ajax/save', {
                 id: app.entryID,
-                body: app.simplemde.value()
-            }, function() {
-
+                content: app.simplemde.value()
+            }, function(d) {
+                console.log(d);
             });
         }
     },
