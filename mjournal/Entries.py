@@ -29,7 +29,14 @@ class Entries:
         if not os.path.exists(day_path):
             os.makedirs(day_path)
 
-    def save_entry(self, entry_id, content):
+    def save_entry(self, entry_id, entry_content):
         year, month, day = self.split_id_to_date(entry_id)
 
         self.create_paths()
+
+        entry_loc = os.path.join(self.save_loc, year, month, day)
+
+        entry_file = open(entry_loc, 'w')
+        entry_file.write(entry_content)
+        entry_file.close()
+
