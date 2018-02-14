@@ -46,6 +46,14 @@ def send_css(path):
 
     return send_from_directory(css_loc, path)
 
+@server.route('/webfonts/<path:path>')
+def send_webfonts(path):
+    global server_loc
+
+    webfonts_loc = os.path.join(server_loc, 'static', 'webfonts')
+
+    return send_from_directory(webfonts_loc, path)
+
 '''
 AJAX Routes
 '''
@@ -53,9 +61,12 @@ AJAX Routes
 @server.route('/ajax/save', methods=['POST'])
 def ajax_save():
     entry_id = request.form['id']
-    entry_body = request.form['body']
+    entry_content = request.form['content']
 
-    return 'a'
+    entries = Entries()
+    entries.save_entry(entry_id, entry_content)
+
+    return 'saved'
 
 def run_server(root_loc_passed):
     global server, root_loc
