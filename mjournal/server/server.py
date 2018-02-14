@@ -46,13 +46,13 @@ def send_css(path):
 
     return send_from_directory(css_loc, path)
 
-@server.route('/webfonts/<path:path>')
-def send_webfonts(path):
+@server.route('/fonts/<path:path>')
+def send_fonts(path):
     global server_loc
 
-    webfonts_loc = os.path.join(server_loc, 'static', 'webfonts')
+    fonts_loc = os.path.join(server_loc, 'static', 'fonts')
 
-    return send_from_directory(webfonts_loc, path)
+    return send_from_directory(fonts_loc, path)
 
 '''
 AJAX Routes
