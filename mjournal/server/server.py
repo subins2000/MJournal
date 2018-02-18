@@ -60,10 +60,12 @@ AJAX Routes
 
 @server.route('/ajax/save', methods=['POST'])
 def ajax_save():
+    global root_loc
+
     entry_id = request.form['id']
     entry_content = request.form['content']
 
-    entries = Entries()
+    entries = Entries(root_loc)
     entries.save_entry(entry_id, entry_content)
 
     return 'saved'
