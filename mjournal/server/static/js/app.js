@@ -45,13 +45,27 @@ app = new Vue({
                 },
 
                 toolbar: [
-                    'bold', 'italic', 'strikethrough', 'heading', '|', 'image', 'quote', 'unordered-list', 'ordered-list', '|', 'undo', 'redo',
+                    'bold',
+                    'italic',
+                    'strikethrough',
+                    'heading',
+                    '|',
+                    'image',
+                    'quote',
+                    'unordered-list',
+                    'ordered-list',
+                    '|',
+                    'undo',
+                    'redo',
                     {
-                    name: 'save',
-                    action: app.save,
-                    className: 'fa fa-save',
-                    title: 'Save'
-                }],
+                        name: 'save',
+                        action: function() {
+                            app.save();
+                        },
+                        className: 'fa fa-save',
+                        title: 'Save'
+                    }
+                ],
 
                 autoDownloadFontAwesome: false
             });
