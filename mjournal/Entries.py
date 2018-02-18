@@ -2,13 +2,13 @@ from datetime import datetime
 
 import os
 
-import mjournal.Settings
+from mjournal.Settings import Settings
 
 
 class Entries:
 
-    def __init__(self):
-        self.save_loc = Settings.get_save_loc()
+    def __init__(self, root_loc):
+        self.save_loc = Settings(root_loc).get_save_loc()
 
     def split_id_to_date(entry_id):
         dt = datetime.strptime(entry_id, '%Y-%m-%d')
