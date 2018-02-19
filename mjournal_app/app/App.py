@@ -5,7 +5,7 @@ import sys
 from PyQt5.QtCore import QTranslator, QLocale, QLibraryInfo
 from PyQt5.QtWidgets import QApplication, QWidget
 
-from mjournal.app.Home import Home
+from mjournal_app.app.Home import Home
 
 
 class App:

@@ -1,7 +1,7 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import qApp, QMainWindow, QStyle
 
-from mjournal.app.ui import Ui_Home
+from mjournal_app.app.ui import Ui_Home
 
 
 class Home(QMainWindow):

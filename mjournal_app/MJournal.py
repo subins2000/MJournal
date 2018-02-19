@@ -1,7 +1,7 @@
 import _thread
 
-from mjournal.server.server import run_server
-from mjournal.app.App import App
+from mjournal_app.server.server import run_server
+from mjournal_app.app.App import App
 
 
 class MJournal:
