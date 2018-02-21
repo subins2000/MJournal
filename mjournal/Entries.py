@@ -13,7 +13,7 @@ class Entries:
     def split_id_to_date(self, entry_id):
         dt = datetime.strptime(entry_id, '%Y-%m-%d')
 
-        return (dt.year, dt.month, dt.day)
+        return (str(dt.year), str(dt.month), str(dt.day))
 
     def create_paths(self, year, month, day):
         year_path = os.path.join(self.save_loc, year)
@@ -32,9 +32,9 @@ class Entries:
     def save_entry(self, entry_id, entry_content):
         year, month, day = self.split_id_to_date(entry_id)
 
-        self.create_paths()
+        self.create_paths(year, month, day)
 
-        entry_loc = os.path.join(self.save_loc, year, month, day)
+        entry_loc = os.path.join(self.save_loc, year, month, day, 'index.md')
 
         entry_file = open(entry_loc, 'w')
         entry_file.write(entry_content)
