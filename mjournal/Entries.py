@@ -10,7 +10,7 @@ class Entries:
     def __init__(self, root_loc):
         self.save_loc = Settings(root_loc).get_save_loc()
 
-    def split_id_to_date(entry_id):
+    def split_id_to_date(self, entry_id):
         dt = datetime.strptime(entry_id, '%Y-%m-%d')
 
         return (dt.year, dt.month, dt.day)
