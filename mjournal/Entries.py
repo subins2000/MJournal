@@ -13,7 +13,7 @@ class Entries:
     def split_id_to_date(self, entry_id):
         dt = datetime.strptime(entry_id, '%Y-%m-%d')
 
-        return (str(dt.year), str(dt.month), str(dt.day))
+        return (str(dt.year), str(dt.month).zfill(2), str(dt.day).zfill(2))
 
     def create_paths(self, year, month, day):
         year_path = os.path.join(self.save_loc, year)
