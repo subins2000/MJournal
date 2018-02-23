@@ -14,6 +14,9 @@ class Settings:
         settings = QSettings('mjournal', 'mjournal')
         return settings.value(key)
 
+    '''
+    Get path to data folder
+    '''
     def get_save_loc(self):
         save_loc = self.get_value('save_loc')
 
@@ -25,4 +28,15 @@ class Settings:
             if not os.path.exists(data_path):
                 os.makedirs(data_path)
 
-            return os.path.join(self.root_loc, 'data', 'entries')
+            return data_path
+
+    '''
+    Get path to data/entries
+    '''
+    def get_entries_save_loc(self):
+        enties_path = os.path.join(self.get_save_loc(), 'data')
+
+        if not os.path.exists(enties_path):
+            os.makedirs(enties_path)
+
+        return enties_path
