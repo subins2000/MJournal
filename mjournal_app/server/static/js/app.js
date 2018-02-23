@@ -32,6 +32,10 @@ app = new Vue({
     entryID: null,
 
     methods: {
+        initIndexPage: function() {
+            alert();
+        },
+
         initWritePage: function() {
             d = new Date();
             this.entryID = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
@@ -74,8 +78,13 @@ app = new Vue({
         },
 
         onPageLoad: function(path) {
-            if (path === '/write') {
-                this.initWritePage();
+            switch(path) {
+                case '/':
+                    this.initIndexPage();
+                    break;
+                case '/write':
+                    this.initWritePage();
+                    break;
             }
         },
 
@@ -86,12 +95,6 @@ app = new Vue({
             }, function(d) {
                 console.log(d);
             });
-        }
-    },
-
-    watch: {
-        '$route': function(to) {
-            this.onPageLoad(to.path);
         }
     },
 
