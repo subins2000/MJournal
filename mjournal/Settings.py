@@ -34,7 +34,7 @@ class Settings:
     Get path to data/entries
     '''
     def get_entries_save_loc(self):
-        enties_path = os.path.join(self.get_save_loc(), 'data')
+        enties_path = os.path.join(self.get_save_loc(), 'entries')
 
         if not os.path.exists(enties_path):
             os.makedirs(enties_path)
