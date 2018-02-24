@@ -40,3 +40,27 @@ class Entries:
         entry_file.write(entry_content)
         entry_file.close()
 
+    def update_index_cache(self):
+        i = 0
+        entries = {}
+
+        for location, folders, files in os.walk(self.entries_save_loc):
+            for file in files:
+                if file == 'index.md':
+                    entry_info_f = open(os.path.join(location, 'entry.json'), 'r')
+                    entry_info = entry_info_f.read()
+                    entry_info_f.close()
+
+                    entries[i] = {
+                        date: entry_info['date'],
+                        path: os.path.join(location, file)
+                    }
+
+                    i += 1
+
+    def get_all_entries(self):
+        self.update_index_cache()
+
+        f = open(os.path.join(self.entries_save_loc, 'index.json'), 'r')
+        index = f.read()
+        f.close()
