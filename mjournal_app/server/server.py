@@ -70,6 +70,15 @@ def ajax_save():
 
     return 'saved'
 
+@server.route('/ajax/getEntries', methods=['GET'])
+def ajax_get_entries():
+    global root_loc
+
+    entries = Entries(root_loc)
+    all_entries = entries.get_all_entries()
+
+    return None
+
 def run_server(root_loc_passed):
     global server, root_loc
 
