@@ -40,6 +40,16 @@ class Entries:
         entry_file.write(entry_content)
         entry_file.close()
 
+        entry_info = {
+            date: '%s-%s-%s' % (year, month, day)
+        }
+
+        entry_info_loc = os.path.join(self.entries_save_loc, year, month, day, 'entry.json')
+
+        entry_info_file = open(entry_info_loc, 'w')
+        entry_info_file.write(entry_info)
+        entry_info_file.close()
+
     def update_index_cache(self):
         i = 0
         entries = {}
