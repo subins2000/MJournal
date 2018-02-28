@@ -61,23 +61,26 @@ class Entries:
                 if file == 'entry.md':
                     try:
                         entry_info_f = open(os.path.join(location, 'entry.json'), 'r')
-                        entry_info = entry_info_f.read()
+                        entry_info = json.load(entry_info_f)
                         entry_info_f.close()
-                    except:
-                        continue
 
-                    entries[entry_info['date']] = {
-                        date: entry_info['date'],
-                        path: os.path.join(location, file)
-                    }
+                        entries[entry_info['date']] = {
+                            'date': entry_info['date'],
+                            'path': location
+                        }
 
-                    i += 1
+                        i += 1
 
-        print(entries)
+                    except Exception as e:
+                        pass
+
+        index_f = open(os.path.join(self.entries_save_loc, 'index.json'), 'w')
+        index_f.write(json.dumps(entries))
+        index_f.close()
 
     def get_all_entries(self):
         self.update_index_cache()
 
-        f = open(os.path.join(self.entries_save_loc, 'index.json'), 'r')
-        index = f.read()
-        f.close()
+        index_f = open(os.path.join(self.entries_save_loc, 'index.json'), 'r')
+        index = index_f.read()
+        index_f.close()
