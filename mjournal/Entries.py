@@ -34,7 +34,7 @@ class Entries:
 
         self.create_paths(year, month, day)
 
-        entry_loc = os.path.join(self.entries_save_loc, year, month, day, 'index.md')
+        entry_loc = os.path.join(self.entries_save_loc, year, month, day, 'entry.md')
 
         entry_file = open(entry_loc, 'w')
         entry_file.write(entry_content)
@@ -56,7 +56,7 @@ class Entries:
 
         for location, folders, files in os.walk(self.entries_save_loc):
             for file in files:
-                if file == 'index.md':
+                if file == 'entry.md':
                     entry_info_f = open(os.path.join(location, 'entry.json'), 'r')
                     entry_info = entry_info_f.read()
                     entry_info_f.close()
