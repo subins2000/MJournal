@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import json
 import os
 
 from mjournal.Settings import Settings
@@ -41,8 +42,9 @@ class Entries:
         entry_file.close()
 
         entry_info = {
-            date: '%s-%s-%s' % (year, month, day)
+            'date': '%s-%s-%s' % (year, month, day)
         }
+        entry_info = json.dumps(entry_info)
 
         entry_info_loc = os.path.join(self.entries_save_loc, year, month, day, 'entry.json')
 
@@ -57,16 +59,21 @@ class Entries:
         for location, folders, files in os.walk(self.entries_save_loc):
             for file in files:
                 if file == 'entry.md':
-                    entry_info_f = open(os.path.join(location, 'entry.json'), 'r')
-                    entry_info = entry_info_f.read()
-                    entry_info_f.close()
+                    try:
+                        entry_info_f = open(os.path.join(location, 'entry.json'), 'r')
+                        entry_info = entry_info_f.read()
+                        entry_info_f.close()
+                    except:
+                        continue
 
-                    entries[i] = {
+                    entries[entry_info['date']] = {
                         date: entry_info['date'],
                         path: os.path.join(location, file)
                     }
 
                     i += 1
+
+        print(entries)
 
     def get_all_entries(self):
         self.update_index_cache()
