@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, request, render_template, send_from_directory
+from flask import Flask, request, render_template, send_from_directory, jsonify
 from mjournal import Entries
 
 
@@ -77,7 +77,7 @@ def ajax_get_entries():
     entries = Entries(root_loc)
     all_entries = entries.get_all_entries()
 
-    return None
+    return jsonify(all_entries)
 
 def run_server(root_loc_passed):
     global server, root_loc
