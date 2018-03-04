@@ -79,8 +79,8 @@ class Entries:
         index_f.close()
 
     def get_all_entries(self):
-        self.update_index_cache()
-
         index_f = open(os.path.join(self.entries_save_loc, 'index.json'), 'r')
-        index = index_f.read()
+        index = json.load(index_f)
         index_f.close()
+
+        return index
