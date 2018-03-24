@@ -33,7 +33,12 @@ app = new Vue({
 
     methods: {
         initIndexPage: function() {
-            alert();
+            $.get('ajax/getEntries', function(result) {
+                console.log(result);
+            });
+            $('#calendar').clndr({
+                template: $('#calendar-template').text()
+            });
         },
 
         initWritePage: function() {
@@ -104,5 +109,5 @@ app = new Vue({
 
     updated: function() {
         this.onPageLoad(this.$route.path);
-    }
+    },
 });
