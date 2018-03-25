@@ -36,9 +36,7 @@ app = new Vue({
             $.get('ajax/getEntries', function(result) {
                 console.log(result);
             });
-            $('#calendar').clndr({
-                template: $('#calendar-template').text()
-            });
+            $('#calendar').datepicker();
         },
 
         initWritePage: function() {
